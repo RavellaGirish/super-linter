@@ -17,3 +17,14 @@ jobs:
           id: ${{ github.run_id }}
           token: ${{ secrets.GITHUB_TOKEN }}
           working_directory: ${{ github.workspace }}
+  
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Super-Linter
+        uses: github/super-linter@v4.9.5
+         env:
+          id: ${{ github.run_id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          working_directory: ${{ github.workspace }}
